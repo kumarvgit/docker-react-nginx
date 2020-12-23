@@ -1,4 +1,5 @@
 sudo: rquired
+language: generic
 services:
   - docker
 
@@ -6,4 +7,4 @@ before_install:
   - docker build -t kumarvgit/docker-react-nginx -f Dockerfile.dev .
 
 script:
-  docker run kumarvgit/docker-react-nginx npm run test -- --coverage
+  - docker run -e CI=true USERNAME/docker-react npm run test
